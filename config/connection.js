@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-// local connection to MongoDB wraped in mongoose
-mongoose.connect("mongodb://127.0.0.1:27017/mongooseCRUDPracticesDB", {
+// Wrap local connection to MongoDB within Mongoose
+mongoose.connect("mongodb://127.0.0.1:27017/mongoosePracticeDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-// exporting connection
+// export connection
 export default mongoose.connection;
