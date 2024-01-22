@@ -45,6 +45,4 @@ async function insertDepartmensIfEmpty() {
 
 insertDepartmensIfEmpty();
 
-module.exports = {
-    Departments
-};
+module.exports = Departments;

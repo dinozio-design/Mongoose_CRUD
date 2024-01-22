@@ -2,7 +2,10 @@ const express = require("express");
 const db = require("./config/connection");
 
 // requiring the models:
-const {Genre, Departments} = require ("./models");
+const { Genre, Departments } = require("./models");
+
+// importing error handling module
+const { handleError } = require("./util/errorHandler.js");
 
 
 // Setting up the server port
@@ -19,17 +22,32 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-/**  ... queries and CRUD will go here
-     ...
-*/
+/**  ... queries and CRUD will go here ... */
+
+// CRUD Operation to find all departments asynchronously
+app.get("/all-departments", async (req, res) => {
+    try {
+        // Query all documents from the 'Department' collection using Mongoose's 'find' method
+        const results = await Departments.find({});
+        // Set the HTTP status code of the response to 200 (OK)
+        // Send the 'results' as a JSON response to the client
+        res.status(200).json(results);
+        console.log(`following results were found: ${results}`);
+    }
+    catch (err) {
+        handleError(err);
+        res.status(500).json({error:"Something went wrong, check the console for error detail"});
+    }
+});
+
 
 
 
 // Setting up a listener for the MongoDB database connection and, 
 // once the connection is open, starting the Express.js server to handle incoming requests.
 
-db.once("open", ()=>{
-    app.listen(PORT, ()=>{
+db.once("open", () => {
+    app.listen(PORT, () => {
         console.log(`API server is now runnign on port ${PORT}`);
     });
 });
