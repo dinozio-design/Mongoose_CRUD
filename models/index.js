@@ -1,3 +1,3 @@
-import Genre from "./Genre";
+const Genre = require('./Genre');
 
-export default {Genre};
+module.exports = { Genre };

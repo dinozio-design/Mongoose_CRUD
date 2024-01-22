@@ -1,10 +1,12 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // Wrap local connection to MongoDB within Mongoose
 mongoose.connect("mongodb://127.0.0.1:27017/mongoosePracticeDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    /**
+    useNewUrlParser: true, // deprecated and not needed since Node.js v4
+    useUnifiedTopology: true, // deprecated and not needed since Node.js v4
+     */
 });
 
 // export connection
-export default mongoose.connection;
+module.exports = mongoose.connection;

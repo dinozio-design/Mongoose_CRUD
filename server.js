@@ -1,8 +1,8 @@
-import { Express } from "express";
-import db from ("./config/connection");
+const express = require("express");
+const db = require("./config/connection");
 
 // requiring the models:
-import { Genre } from ("./models");
+const {Genre} = require ("./models");
 
 
 // Setting up the server port
