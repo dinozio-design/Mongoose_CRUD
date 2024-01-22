@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-
+// this code is promise based and implement the error handling within the model
+// I will write cleaner code in the other models that I will introduce
+// this code is merely to showcase the different ways of writing the same model
 
 // Defining a Mongoose schema for the 'Genre' model
 const genreSchema = new mongoose.Schema({

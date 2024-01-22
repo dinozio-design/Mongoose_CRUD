@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./config/connection");
 
 // requiring the models:
-const {Genre} = require ("./models");
+const {Genre, Departments} = require ("./models");
 
 
 // Setting up the server port
